@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sonrisa Sur Odontología Demo</title>
+    <meta name="description" content="Sonrisa Sur Odontología, Quilmes. Odontología general, estética y ortodoncia. Sitio de demostración diseñado por Kevin Martínez." />
+    <meta name="theme-color" content="#0f4c4a" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --x-teal-900: #0d3b3a;
+        --x-teal-700: #0f5c58;
+        --x-teal-500: #1f8f86;
+        --x-mint-100: #e3f5ef;
+        --x-mint-200: #c9ebe0;
+        --x-sand-50: #fbf7f1;
+        --x-sand-100: #f3eadc;
+        --x-sand-300: #dcc6a3;
+        --x-wa: #1f9d55;
+        --x-white: #ffffff;
+        --x-muted: #4a6664;
+        --x-line: #dbe7e3;
+        --x-font: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --x-shadow: 0 10px 30px rgba(13, 59, 58, 0.08);
+        --x-max: 1120px;
+        color-scheme: light;
+      }
+      html { scroll-padding-top: 76px; }
+      body.x-site { background: var(--x-white); color: var(--x-teal-900); font-family: var(--x-font); font-size: 16px; line-height: 1.55; }
+      .x-site h1, .x-site h2, .x-site h3 { font-family: var(--x-font); color: inherit; letter-spacing: -0.01em; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding: 0 20px; }
+      .x-site :focus-visible { outline: 3px solid var(--x-teal-500); outline-offset: 3px; }
+
+      /* demo bar */
+      .x-demo { background: var(--x-teal-900); color: #e8f5f1; font-size: 13px; text-align: center; padding: 8px 16px; line-height: 1.4; }
+      .x-demo a { color: #9ff0d6; font-weight: 700; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 6px; margin-block: -12px; vertical-align: middle; }
+      .x-brand { min-height: 44px; }
+      .x-tap { display: inline-flex; align-items: center; min-height: 44px; }
+      .x-foot__links { display: flex; flex-wrap: wrap; column-gap: 16px; }
+      .x-foot__links a { display: inline-flex; align-items: center; min-height: 44px; }
+      .x-foot__legal a { display: inline-flex; align-items: center; min-height: 44px; }
+
+      /* nav */
+      .x-nav { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--x-line); }
+      .x-nav__in { display: flex; align-items: center; gap: 16px; min-height: 64px; }
+      .x-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 18px; line-height: 1.1; color: var(--x-teal-900); }
+      .x-brand small { display: block; font-size: 12px; font-weight: 600; color: var(--x-teal-700); letter-spacing: 0.04em; text-transform: uppercase; }
+      .x-logo { width: 40px; height: 40px; flex: none; }
+      .x-menu { display: flex; gap: 4px; margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
+      .x-menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; color: var(--x-teal-900); }
+      .x-menu a:hover { background: var(--x-mint-100); }
+      .x-menu a.x-menu__cta { background: var(--x-teal-700); color: #fff; }
+      .x-menu a.x-menu__cta:hover { background: var(--x-teal-900); }
+      .x-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 1px solid var(--x-line); border-radius: 12px; background: #fff; color: var(--x-teal-900); cursor: pointer; }
+      @media (max-width: 860px) {
+        .x-burger { display: inline-grid; place-items: center; }
+        .x-menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; background: #fff; padding: 8px 16px 16px; border-bottom: 1px solid var(--x-line); box-shadow: var(--x-shadow); }
+        .x-menu.is-open { display: flex; }
+        .x-menu a { width: 100%; font-size: 17px; }
+      }
+
+      /* buttons */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; font: 700 16px/1 var(--x-font); text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform 0.15s ease, background 0.15s ease; }
+      .x-btn:hover { transform: translateY(-1px); }
+      .x-btn svg { width: 20px; height: 20px; flex: none; }
+      .x-btn--wa { background: var(--x-wa); color: #fff; }
+      .x-btn--wa:hover { background: #17834a; }
+      .x-btn--ghost { background: #0d3b3a; color: #fff; border-color: rgba(255, 255, 255, 0.7); }
+      .x-btn--line { background: #fff; color: var(--x-teal-900); border-color: var(--x-teal-700); }
+      .x-btn--line:hover { background: var(--x-mint-100); }
+
+      /* hero */
+      .x-hero { position: relative; isolation: isolate; color: #fff; background-color: var(--x-teal-900); min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
+      .x-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+      .x-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8, 40, 39, 0.25) 0%, rgba(8, 40, 39, 0.55) 45%, rgba(8, 40, 39, 0.9) 100%), linear-gradient(90deg, rgba(8, 40, 39, 0.6) 0%, rgba(8, 40, 39, 0) 70%); }
+      .x-hero__in { padding-block: 120px 48px; max-width: 720px; }
+      .x-eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--x-teal-700); margin-bottom: 10px; }
+      .x-hero .x-eyebrow { color: #9ff0d6; }
+      .x-hero h1 { font-size: clamp(36px, 8vw, 60px); line-height: 1.05; font-weight: 800; }
+      .x-hero__sub { font-size: clamp(17px, 2.4vw, 20px); margin-top: 14px; color: #e6f3ef; max-width: 560px; }
+      .x-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .x-trust { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+      .x-trust li { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: #0f4c4a; border: 1px solid rgba(255, 255, 255, 0.35); }
+      .x-trust svg { width: 14px; height: 14px; color: #9ff0d6; }
+
+      /* sections */
+      .x-sec { padding-block: 72px; }
+      .x-sec--mint { background: var(--x-mint-100); }
+      .x-sec--sand { background: var(--x-sand-50); }
+      .x-head { max-width: 640px; margin-bottom: 32px; }
+      .x-head h2 { font-size: clamp(28px, 5vw, 40px); line-height: 1.12; font-weight: 800; }
+      .x-head p { color: var(--x-muted); margin-top: 10px; font-size: 17px; }
+      .x-note { color: var(--x-muted); font-size: 14px; margin-top: 20px; }
+      .x-note--italic { font-style: italic; }
+      .x-note--hl { display: inline-flex; gap: 8px; align-items: center; background: var(--x-sand-100); color: var(--x-teal-900); font-weight: 600; font-size: 15px; padding: 10px 16px; border-radius: 14px; }
+
+      /* service cards */
+      .x-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+      .x-card { background: #fff; border: 1px solid var(--x-line); border-radius: 20px; padding: 24px; box-shadow: var(--x-shadow); }
+      .x-card h3 { font-size: 19px; font-weight: 700; margin-top: 14px; }
+      .x-card p { color: var(--x-muted); margin-top: 6px; }
+      .x-ico { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--x-mint-100); color: var(--x-teal-700); }
+      .x-ico svg { width: 28px; height: 28px; }
+
+      /* why */
+      .x-split { display: grid; gap: 32px; align-items: center; }
+      @media (min-width: 860px) { .x-split { grid-template-columns: 1fr 1fr; gap: 56px; } }
+      .x-photo { border-radius: 28px; overflow: hidden; box-shadow: var(--x-shadow); border: 6px solid #fff; }
+      .x-photo img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+      .x-points { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+      .x-points li { display: flex; gap: 16px; align-items: flex-start; }
+      .x-points h3 { font-size: 18px; font-weight: 700; }
+      .x-points p { color: var(--x-muted); margin-top: 2px; }
+      .x-points .x-ico { flex: none; background: #fff; }
+
+      /* team */
+      .x-team { text-align: center; }
+      .x-avatar { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto; display: grid; place-items: center; font-size: 28px; font-weight: 800; color: #fff; }
+      .x-avatar--a { background: var(--x-teal-700); }
+      .x-avatar--b { background: var(--x-teal-500); }
+      .x-avatar--c { background: #b08a55; }
+      .x-team h3 { margin-top: 16px; }
+
+      /* insurance pills */
+      .x-pills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+      .x-pills li { padding: 12px 20px; border-radius: 999px; background: #fff; border: 1.5px solid var(--x-mint-200); font-weight: 700; font-size: 16px; }
+      .x-pills li.x-pills__alt { background: var(--x-sand-100); border-color: var(--x-sand-300); font-weight: 600; }
+
+      /* testimonials */
+      .x-quotes { display: grid; gap: 16px; }
+      .x-quote { background: #fff; border-radius: 20px; padding: 22px; border: 1px solid var(--x-line); }
+      .x-quote blockquote { margin: 10px 0 0; font-size: 17px; }
+      .x-quote cite { display: block; margin-top: 12px; font-style: normal; font-weight: 700; color: var(--x-teal-700); }
+      .x-stars { display: flex; gap: 2px; color: #e0a526; }
+      .x-stars svg { width: 18px; height: 18px; }
+
+      /* form */
+      .x-book { display: grid; gap: 28px; }
+      @media (min-width: 860px) { .x-book { grid-template-columns: 1fr 1.1fr; align-items: start; } }
+      .x-form { background: #fff; border-radius: 24px; padding: 24px; box-shadow: var(--x-shadow); border: 1px solid var(--x-line); display: grid; gap: 16px; }
+      .x-field label, .x-field legend { display: block; font-weight: 700; font-size: 15px; margin-bottom: 6px; padding: 0; }
+      .x-field input[type="text"], .x-field input[type="date"], .x-field select { width: 100%; min-height: 50px; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--x-line); background: var(--x-sand-50); font: 500 16px var(--x-font); color: var(--x-teal-900); }
+      .x-field input:focus, .x-field select:focus { outline: none; border-color: var(--x-teal-500); box-shadow: 0 0 0 3px var(--x-mint-200); }
+      .x-field[data-invalid] input, .x-field[data-invalid] select { border-color: #c2412d; }
+      .x-err { display: none; color: #b3361f; font-size: 14px; font-weight: 600; margin-top: 6px; }
+      .x-field[data-invalid] .x-err { display: block; }
+      fieldset.x-field { border: 0; margin: 0; padding: 0; }
+      .x-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .x-seg input { position: absolute; opacity: 0; pointer-events: none; }
+      .x-seg label { margin: 0; display: grid; place-items: center; min-height: 50px; border-radius: 14px; border: 1.5px solid var(--x-line); background: var(--x-sand-50); cursor: pointer; font-weight: 700; }
+      .x-seg input:checked + label { background: var(--x-teal-700); border-color: var(--x-teal-700); color: #fff; }
+      .x-seg input:focus-visible + label { outline: 3px solid var(--x-teal-500); outline-offset: 2px; }
+      .x-form .x-btn { width: 100%; }
+      .x-form__note { font-size: 14px; color: var(--x-muted); text-align: center; }
+
+      /* contact */
+      .x-contact { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+      .x-hours { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+      .x-hours li { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px dashed var(--x-line); }
+      .x-hours b { font-weight: 700; }
+      .x-status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; background: var(--x-sand-100); color: var(--x-teal-900); }
+      .x-status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #9aa9a7; }
+      .x-status[data-open="true"] { background: #dff5e7; color: #12663a; }
+      .x-status[data-open="true"]::before { background: #1f9d55; box-shadow: 0 0 0 4px rgba(31, 157, 85, 0.2); }
+      .x-status[data-open="false"] { background: #fbe7e2; color: #8f2c1a; }
+      .x-status[data-open="false"]::before { background: #c2412d; }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+      /* faq */
+      .x-faq { display: grid; gap: 10px; max-width: 760px; }
+      .x-faq details { background: #fff; border: 1px solid var(--x-line); border-radius: 18px; }
+      .x-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 14px 20px; font-weight: 700; font-size: 17px; }
+      .x-faq summary::-webkit-details-marker { display: none; }
+      .x-faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--x-teal-500); transition: transform 0.2s ease; }
+      .x-faq details[open] summary::after { transform: rotate(45deg); }
+      .x-faq details p { padding: 0 20px 18px; color: var(--x-muted); }
+
+      /* footer */
+      .x-foot { background: var(--x-teal-900); color: #d6ebe6; padding-block: 48px 110px; font-size: 15px; }
+      .x-foot__grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+      .x-foot .x-brand { color: #fff; }
+      .x-foot .x-brand small { color: #9ff0d6; }
+      .x-foot h3 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+      .x-foot a { color: #9ff0d6; text-underline-offset: 3px; }
+      .x-foot__legal { border-top: 1px solid rgba(255, 255, 255, 0.15); margin-top: 32px; padding-top: 20px; display: grid; gap: 6px; font-size: 14px; }
+
+      /* floating WhatsApp */
+      .x-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: var(--x-wa); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25); transition: transform 0.15s ease; }
+      .x-float:hover { transform: scale(1.06); }
+      .x-float svg { width: 32px; height: 32px; }
+
+      /* fade-in */
+      .x-js .x-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .x-js .x-fade.is-in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { .x-js .x-fade { opacity: 1; transform: none; transition: none; } .x-btn, .x-float { transition: none; } }
+    </style>
+  </head>
+  <body class="x-site">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="x-tooth" viewBox="0 0 48 48"><path d="M24 9c-3-2.6-7.5-3.4-11-1.5C8.6 10 8 15.6 9.6 21c1.2 4 1.7 7.6 2.3 12 .6 4.3 1.8 7.5 4.3 7.5 2.9 0 3.2-4.2 4-8 .6-2.6 1.9-4 3.8-4s3.2 1.4 3.8 4c.8 3.8 1.1 8 4 8 2.5 0 3.7-3.2 4.3-7.5.6-4.4 1.1-8 2.3-12C40 15.6 39.4 10 35 7.5 31.5 5.6 27 6.4 24 9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+        <symbol id="x-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 1 1 6.99 3.86Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+        <symbol id="x-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17 19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="x-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8Z"/></symbol>
+      </defs>
+    </svg>
+
+    <div class="page" id="top" style="max-width:none;padding:0;margin:0;display:block">
+      <div class="x-demo" role="note">
+        Sitio de demostración · Diseño y desarrollo: Kevin Martínez — ¿Querés una web así para tu negocio?
+        <a href="https://wa.me/5491168681176?text=Hola%20Kevin%2C%20vi%20la%20web%20de%20ejemplo%20del%20consultorio%20y%20quiero%20una%20para%20mi%20negocio" target="_blank" rel="noopener">Escribime</a>
+      </div>
+
+      <header class="x-nav">
+        <div class="x-wrap x-nav__in">
+          <a class="x-brand" href="#inicio" aria-label="Sonrisa Sur Odontología, inicio">
+            <svg class="x-logo" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="23" fill="#e3f5ef" />
+              <path d="M24 12.5c-2.3-2-5.7-2.6-8.4-1.1-3.4 1.9-3.8 6.2-2.6 10.3.9 3 1.3 5.8 1.8 9.1.5 3.3 1.4 5.7 3.3 5.7 2.2 0 2.4-3.2 3-6.1.5-2 1.4-3 2.9-3s2.4 1 2.9 3c.6 2.9.8 6.1 3 6.1 1.9 0 2.8-2.4 3.3-5.7.5-3.3.9-6.1 1.8-9.1 1.2-4.1.8-8.4-2.6-10.3-2.7-1.5-6.1-.9-8.4 1.1Z" fill="#fff" stroke="#0f5c58" stroke-width="2.2" stroke-linejoin="round" />
+              <path d="M19 19.5c1.4 2 3 3 5 3s3.6-1 5-3" fill="none" stroke="#1f8f86" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+            <span>Sonrisa Sur<small>Odontología</small></span>
+          </a>
+          <button class="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Abrir menú">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
+          </button>
+          <ul class="x-menu" id="x-menu">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#obras-sociales">Obras sociales</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a class="x-menu__cta" href="#turnos">Turnos</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <main id="inicio">
+        <section class="x-hero">
+          <img class="x-hero__img" src="dental_hero.jpg" alt="" />
+          <div class="x-wrap" style="width:100%">
+            <div class="x-hero__in">
+              <span class="x-eyebrow">Consultorio odontológico · Quilmes</span>
+              <h1>Tu sonrisa, en buenas manos</h1>
+              <p class="x-hero__sub">Odontología general, estética y ortodoncia en Quilmes. Turnos en el día para urgencias.</p>
+              <div class="x-hero__cta">
+                <a class="x-btn x-btn--wa" href="#turnos"><svg aria-hidden="true"><use href="#x-wa" /></svg>Pedí tu turno por WhatsApp</a>
+                <a class="x-btn x-btn--ghost" href="#servicios">Ver servicios</a>
+              </div>
+              <ul class="x-trust">
+                <li><svg aria-hidden="true"><use href="#x-check" /></svg>Atendemos obras sociales y prepagas</li>
+                <li><svg aria-hidden="true"><use href="#x-check" /></svg>Urgencias en el día</li>
+                <li><svg aria-hidden="true"><use href="#x-check" /></svg>Lunes a sábado</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="servicios">
+          <div class="x-wrap">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Servicios</span>
+              <h2>Todo lo que tu boca necesita, en un solo lugar</h2>
+              <p>Atendemos a toda la familia, desde el primer control hasta tratamientos completos.</p>
+            </div>
+            <div class="x-grid">
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#x-tooth" /><path d="M35 4l1.2 2.8L39 8l-2.8 1.2L35 12l-1.2-2.8L31 8l2.8-1.2Z" fill="currentColor" /></svg></div>
+                <h3>Limpieza y control</h3>
+                <p>Revisión completa y limpieza profesional para prevenir problemas antes de que aparezcan.</p>
+              </article>
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#x-tooth" /><circle cx="27" cy="18" r="3.4" fill="currentColor" /></svg></div>
+                <h3>Arreglos (caries)</h3>
+                <p>Restauraciones del color de tu diente, rápidas y sin dolor.</p>
+              </article>
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><rect x="5" y="17" width="10" height="14" rx="3" /><rect x="19" y="17" width="10" height="14" rx="3" /><rect x="33" y="17" width="10" height="14" rx="3" /><path d="M3 24h42" /></svg></div>
+                <h3>Ortodoncia</h3>
+                <p>Brackets y alineadores invisibles para chicos y adultos.</p>
+              </article>
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="8" /><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4" /></svg></div>
+                <h3>Blanqueamiento</h3>
+                <p>Una sonrisa más blanca en una sola sesión, cuidando el esmalte.</p>
+              </article>
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6h20c2 0 3 2 2.4 4L34 18H14l-2.4-8C11 8 12 6 14 6Z" /><path d="M17 23h14M18 28h12M19 33h10M21 38h6M24 18v26" /></svg></div>
+                <h3>Implantes</h3>
+                <p>Reemplazamos piezas perdidas con implantes firmes y naturales.</p>
+              </article>
+              <article class="x-card x-fade">
+                <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17" /><circle cx="18" cy="21" r="1.6" fill="currentColor" stroke="none" /><circle cx="30" cy="21" r="1.6" fill="currentColor" stroke="none" /><path d="M17 29c2 3 4.4 4.4 7 4.4s5-1.4 7-4.4M20 7c1 3 3 4 6 3" /></svg></div>
+                <h3>Odontopediatría</h3>
+                <p>Atención paciente y divertida para que los más chicos vengan tranquilos.</p>
+              </article>
+            </div>
+            <p class="x-note x-note--hl x-fade"><svg width="18" height="18" aria-hidden="true"><use href="#x-check" /></svg>Primera consulta con diagnóstico y presupuesto sin compromiso.</p>
+          </div>
+        </section>
+
+        <section class="x-sec x-sec--sand" id="por-que">
+          <div class="x-wrap x-split">
+            <div class="x-photo x-fade"><img src="dental_recepcion.jpg" alt="Recepción luminosa del consultorio Sonrisa Sur" loading="lazy" /></div>
+            <div>
+              <div class="x-head x-fade">
+                <span class="x-eyebrow">Por qué elegirnos</span>
+                <h2>Un consultorio donde te sentís cómodo</h2>
+              </div>
+              <ul class="x-points">
+                <li class="x-fade">
+                  <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="24" rx="4" /><path d="M16 42h16M24 34v8M12 26l6-6 5 4 8-9" /></svg></div>
+                  <div><h3>Equipamiento moderno</h3><p>Radiografía digital y tecnología actual para diagnósticos precisos.</p></div>
+                </li>
+                <li class="x-fade">
+                  <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="25" r="17" /><path d="M24 15v10l7 4M19 4h10" /></svg></div>
+                  <div><h3>Turnos puntuales</h3><p>Respetamos tu tiempo: nada de esperas eternas.</p></div>
+                </li>
+                <li class="x-fade">
+                  <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10h32v22H22l-9 7v-7H8Z" /><path d="M16 19h16M16 25h10" /></svg></div>
+                  <div><h3>Te explicamos todo antes de empezar</h3><p>Sabés qué te vamos a hacer, por qué y cuánto dura.</p></div>
+                </li>
+                <li class="x-fade">
+                  <div class="x-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="12" width="38" height="25" rx="4" /><path d="M5 20h38M12 30h8" /></svg></div>
+                  <div><h3>Planes de pago</h3><p>Opciones en cuotas para que puedas hacer tu tratamiento.</p></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="equipo">
+          <div class="x-wrap">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Equipo</span>
+              <h2>Profesionales que te escuchan</h2>
+            </div>
+            <div class="x-grid">
+              <article class="x-card x-team x-fade">
+                <div class="x-avatar x-avatar--a" aria-hidden="true">LG</div>
+                <h3>Od. Laura Gómez</h3>
+                <p>Odontología general y estética</p>
+              </article>
+              <article class="x-card x-team x-fade">
+                <div class="x-avatar x-avatar--b" aria-hidden="true">MR</div>
+                <h3>Od. Martín Ríos</h3>
+                <p>Ortodoncia</p>
+              </article>
+              <article class="x-card x-team x-fade">
+                <div class="x-avatar x-avatar--c" aria-hidden="true">SP</div>
+                <h3>Od. Sofía Pereyra</h3>
+                <p>Odontopediatría</p>
+              </article>
+            </div>
+            <p class="x-note x-note--italic">Profesionales ficticios — sitio de demostración.</p>
+          </div>
+        </section>
+
+        <section class="x-sec x-sec--mint" id="obras-sociales">
+          <div class="x-wrap">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Obras sociales</span>
+              <h2>Trabajamos con tu cobertura</h2>
+            </div>
+            <ul class="x-pills x-fade">
+              <li>OSDE</li>
+              <li>Swiss Medical</li>
+              <li>Galeno</li>
+              <li>Medifé</li>
+              <li>IOMA</li>
+              <li>OSECAC</li>
+              <li class="x-pills__alt">y particulares</li>
+            </ul>
+            <p class="x-note">¿No ves la tuya? <a class="x-tap" href="#turnos" style="color:var(--x-teal-700);font-weight:700">Consultanos por la tuya.</a></p>
+          </div>
+        </section>
+
+        <section class="x-sec" id="testimonios">
+          <div class="x-wrap x-split">
+            <div>
+              <div class="x-head x-fade">
+                <span class="x-eyebrow">Testimonios</span>
+                <h2>Lo que dicen nuestros pacientes</h2>
+              </div>
+              <div class="x-quotes">
+                <figure class="x-quote x-fade" style="margin:0">
+                  <div class="x-stars" role="img" aria-label="5 de 5 estrellas"><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg></div>
+                  <blockquote>“Le tenía pánico al dentista y me trataron con una paciencia increíble. Ya no falto a los controles.”</blockquote>
+                  <cite>Carla M.</cite>
+                </figure>
+                <figure class="x-quote x-fade" style="margin:0">
+                  <div class="x-stars" role="img" aria-label="5 de 5 estrellas"><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg></div>
+                  <blockquote>“Me dolía una muela un sábado y me atendieron en el día. Un golazo.”</blockquote>
+                  <cite>Diego R.</cite>
+                </figure>
+                <figure class="x-quote x-fade" style="margin:0">
+                  <div class="x-stars" role="img" aria-label="5 de 5 estrellas"><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg><svg><use href="#x-star" /></svg></div>
+                  <blockquote>“Mi hija de 4 años salió contenta y preguntando cuándo volvemos.”</blockquote>
+                  <cite>Ana P.</cite>
+                </figure>
+              </div>
+              <p class="x-note x-note--italic">Testimonios de ejemplo.</p>
+            </div>
+            <div class="x-photo x-fade"><img src="dental_sonrisa.jpg" alt="Primer plano de la sonrisa de una paciente" loading="lazy" style="aspect-ratio:4/5" /></div>
+          </div>
+        </section>
+
+        <section class="x-sec x-sec--sand" id="turnos">
+          <div class="x-wrap x-book">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Turnos</span>
+              <h2>Pedí tu turno en menos de un minuto</h2>
+              <p>Completá estos datos y te abrimos WhatsApp con el mensaje listo. Te confirmamos el horario por ahí.</p>
+            </div>
+            <form class="x-form x-fade" id="x-turno" novalidate>
+              <div class="x-field" id="f-nombre">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="given-name" placeholder="Ej.: Carla" required />
+                <p class="x-err" role="alert">Escribí tu nombre.</p>
+              </div>
+              <div class="x-field" id="f-motivo">
+                <label for="motivo">Motivo</label>
+                <select id="motivo" name="motivo" required>
+                  <option value="">Elegí una opción</option>
+                  <option>Control/limpieza</option>
+                  <option>Dolor/urgencia</option>
+                  <option>Ortodoncia</option>
+                  <option>Blanqueamiento</option>
+                  <option>Implantes</option>
+                  <option>Niños</option>
+                  <option>Otro</option>
+                </select>
+                <p class="x-err" role="alert">Elegí el motivo de la consulta.</p>
+              </div>
+              <div class="x-field">
+                <label for="dia">Día preferido</label>
+                <input type="date" id="dia" name="dia" />
+              </div>
+              <fieldset class="x-field">
+                <legend>Turno</legend>
+                <div class="x-seg">
+                  <input type="radio" id="t-man" name="turno" value="mañana" checked /><label for="t-man">Mañana</label>
+                  <input type="radio" id="t-tar" name="turno" value="tarde" /><label for="t-tar">Tarde</label>
+                </div>
+              </fieldset>
+              <button class="x-btn x-btn--wa" type="submit"><svg aria-hidden="true"><use href="#x-wa" /></svg>Enviar por WhatsApp</button>
+              <p class="x-form__note">En este demo el mensaje llega a Kevin Martínez, el diseñador.</p>
+            </form>
+          </div>
+        </section>
+
+        <section class="x-sec" id="contacto">
+          <div class="x-wrap">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Horarios y contacto</span>
+              <h2>Estamos en Quilmes centro</h2>
+            </div>
+            <div class="x-contact">
+              <div class="x-card x-fade">
+                <p><span class="x-status" id="x-status" aria-live="polite">Horario de atención</span></p>
+                <ul class="x-hours">
+                  <li><span>Lunes a viernes</span><b>9 a 20 h</b></li>
+                  <li><span>Sábados</span><b>9 a 13 h</b></li>
+                  <li><span>Domingos</span><b>Cerrado</b></li>
+                </ul>
+              </div>
+              <div class="x-card x-fade">
+                <h3 style="margin-top:0">Zona</h3>
+                <p>Quilmes centro, Buenos Aires. Te pasamos la dirección exacta al confirmar el turno.</p>
+                <div class="x-btns">
+                  <a class="x-btn x-btn--wa" href="https://wa.me/5491168681176?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#x-wa" /></svg>WhatsApp</a>
+                  <a class="x-btn x-btn--line" href="https://www.google.com/maps/search/?api=1&amp;query=Quilmes%2C%20Buenos%20Aires" target="_blank" rel="noopener">Cómo llegar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-sec--mint" id="faq">
+          <div class="x-wrap">
+            <div class="x-head x-fade">
+              <span class="x-eyebrow">Preguntas frecuentes</span>
+              <h2>Respuestas rápidas</h2>
+            </div>
+            <div class="x-faq x-fade">
+              <details><summary>¿Atienden urgencias?</summary><p>Sí, con turno en el día según disponibilidad.</p></details>
+              <details><summary>¿Cuánto dura un blanqueamiento?</summary><p>Una sesión de aprox. 1 hora.</p></details>
+              <details><summary>¿Desde qué edad atienden niños?</summary><p>Desde los 2 años.</p></details>
+              <details><summary>¿Tienen planes de pago?</summary><p>Sí, consultá en la primera visita.</p></details>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="x-foot">
+        <div class="x-wrap">
+          <div class="x-foot__grid">
+            <div>
+              <a class="x-brand" href="#inicio">
+                <svg class="x-logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#1f5f5b" /><path d="M24 12.5c-2.3-2-5.7-2.6-8.4-1.1-3.4 1.9-3.8 6.2-2.6 10.3.9 3 1.3 5.8 1.8 9.1.5 3.3 1.4 5.7 3.3 5.7 2.2 0 2.4-3.2 3-6.1.5-2 1.4-3 2.9-3s2.4 1 2.9 3c.6 2.9.8 6.1 3 6.1 1.9 0 2.8-2.4 3.3-5.7.5-3.3.9-6.1 1.8-9.1 1.2-4.1.8-8.4-2.6-10.3-2.7-1.5-6.1-.9-8.4 1.1Z" fill="#fff" stroke="#9ff0d6" stroke-width="2.2" stroke-linejoin="round" /><path d="M19 19.5c1.4 2 3 3 5 3s3.6-1 5-3" fill="none" stroke="#1f8f86" stroke-width="2.2" stroke-linecap="round" /></svg>
+                <span>Sonrisa Sur<small>Odontología</small></span>
+              </a>
+              <p style="margin-top:12px">Odontología general, estética y ortodoncia en Quilmes centro.</p>
+            </div>
+            <div>
+              <h3>Horarios</h3>
+              <p>Lunes a viernes 9 a 20 h<br />Sábados 9 a 13 h</p>
+            </div>
+            <div>
+              <h3>Secciones</h3>
+              <p class="x-foot__links"><a href="#servicios">Servicios</a><a href="#equipo">Equipo</a><a href="#obras-sociales">Obras sociales</a><a href="#turnos">Turnos</a><a href="#contacto">Contacto</a></p>
+            </div>
+          </div>
+          <div class="x-foot__legal">
+            <p>© 2026 Sonrisa Sur Odontología (marca ficticia)</p>
+            <p><a href="https://wa.me/5491168681176?text=Hola%20Kevin%2C%20vi%20la%20web%20de%20ejemplo%20del%20consultorio%20y%20quiero%20una%20para%20mi%20negocio" target="_blank" rel="noopener">Sitio de demostración diseñado por Kevin Martínez · WhatsApp +54 9 11 6868-1176</a></p>
+          </div>
+        </div>
+      </footer>
+
+      <a class="x-float" href="https://wa.me/5491168681176?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg aria-hidden="true"><use href="#x-wa" /></svg></a>
+    </div>
+    <script>
+      (function () {
+        var doc = document;
+        doc.documentElement.classList.add("x-js");
+
+        // mobile menu
+        var burger = doc.querySelector(".x-burger"), menu = doc.getElementById("x-menu");
+        burger.addEventListener("click", function () {
+          var open = menu.classList.toggle("is-open");
+          burger.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        menu.addEventListener("click", function (e) {
+          if (e.target.closest("a")) { menu.classList.remove("is-open"); burger.setAttribute("aria-expanded", "false"); }
+        });
+
+        // fade-in
+        var items = doc.querySelectorAll(".x-fade");
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          items.forEach(function (el) { io.observe(el); });
+        } else { items.forEach(function (el) { el.classList.add("is-in"); }); }
+
+        // open now, Argentina time (UTC-3)
+        var status = doc.getElementById("x-status");
+        function updateStatus() {
+          var ar = new Date(Date.now() - 3 * 3600 * 1000);
+          var d = ar.getUTCDay(), m = ar.getUTCHours() * 60 + ar.getUTCMinutes();
+          var open = (d >= 1 && d <= 5 && m >= 540 && m < 1200) || (d === 6 && m >= 540 && m < 780);
+          status.dataset.open = open ? "true" : "false";
+          status.textContent = open ? "Abierto ahora" : "Cerrado";
+        }
+        updateStatus();
+        setInterval(updateStatus, 60000);
+
+        // date min = today (Argentina)
+        var dia = doc.getElementById("dia");
+        dia.min = new Date(Date.now() - 3 * 3600 * 1000).toISOString().slice(0, 10);
+
+        // booking form
+        var form = doc.getElementById("x-turno");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nombre = form.nombre.value.trim(), motivo = form.motivo.value;
+          var fN = doc.getElementById("f-nombre"), fM = doc.getElementById("f-motivo");
+          fN.toggleAttribute("data-invalid", !nombre);
+          fM.toggleAttribute("data-invalid", !motivo);
+          if (!nombre) { form.nombre.focus(); return; }
+          if (!motivo) { form.motivo.focus(); return; }
+          var diaTxt = "día que tengan disponible";
+          if (form.dia.value) {
+            var p = form.dia.value.split("-");
+            var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+            var dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+            diaTxt = dias[dt.getDay()] + " " + p[2] + "/" + p[1];
+          }
+          var turno = form.querySelector('input[name="turno"]:checked').value;
+          var msg = "Hola! Soy " + nombre + ", quiero un turno para " + motivo.toLowerCase() + " el " + diaTxt + " por la " + turno + ".";
+          window.open("https://wa.me/5491168681176?text=" + encodeURIComponent(msg), "_blank", "noopener");
+        });
+        ["nombre", "motivo"].forEach(function (n) {
+          form[n].addEventListener("input", function () { if (form[n].value.trim()) doc.getElementById("f-" + n).removeAttribute("data-invalid"); });
+        });
+      })();
+    </script>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
